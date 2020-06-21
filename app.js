@@ -1,24 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+const date =  require(__dirname+'/date.js');
+
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
-var items = [];
-let works = [];
+const items = [];
+const works = [];
 
 app.get('/',(req, res)=>{
-	const today = new Date();
-	var option = {
-		day: "numeric",
-		month:"long",
-		year: "numeric",
-		weekday: "long"
-	}
-	const day = today.toLocaleDateString('en-US',option);
-
+	const day = date.getDate();
 	res.render('list',{day:day, items: items})
 });
 
@@ -37,6 +31,10 @@ app.post('/',(req, res)=>{
 		res.redirect('/');
 		
 	}
+});
+
+app.get('/about',(req, res)=>{
+	res.render('about')
 });
 
 app.listen(3000, ()=>console.log('server started on port 3000'));
