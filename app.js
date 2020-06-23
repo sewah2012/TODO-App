@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const _=require('lodash');
-mongoose.connect('mongodb+srv://admin-sewah:sahrsewah@cluster0-5i5hm.mongodb.net/todoListDB?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://<user-name>:<password>@cluster0-5i5hm.mongodb.net/todoListDB?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
 const itemSchama={
 	name: {
 		type: String,
