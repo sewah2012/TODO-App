@@ -1,6 +1,4 @@
-*.DS_Store
-/package-lock.json
-.log
-*.swp
-*.swo
-node_modules
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env

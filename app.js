@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const _=require('lodash');
-mongoose.connect('mongodb://localhost/todoListDB',{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://admin-sewah:sahrsewah@cluster0-5i5hm.mongodb.net/todoListDB?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
 const itemSchama={
 	name: {
 		type: String,
@@ -55,7 +55,7 @@ app.get('/',(req, res)=>{
 					if(err){
 						console.log(err);
 					}else{
-						console.log('Data saved successfully');
+						// console.log('Data saved successfully');
 					}
 				});
 				res.redirect('/');
@@ -95,7 +95,7 @@ app.post('/delete',(req, res)=>{
 	if(listName==='Today'){
 		Item.deleteOne({_id:checkItem},(err)=>{
 			if(!err){
-				console.log('Deleted Successfully')
+				// console.log('Deleted Successfully')
 			}
 		});
 		res.redirect('/');
@@ -145,4 +145,4 @@ app.get('/:param',(req,res)=>{
 
 
 
-app.listen(3000, ()=>console.log('server started on port 3000'));
+app.listen( process.env.PORT || 3000, ()=>console.log('server started on port 3000'));
